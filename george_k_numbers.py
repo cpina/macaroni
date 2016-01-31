@@ -1,5 +1,11 @@
 import microbit
 
+"""
+To show numbers using George K system: copy-paste the digits={} and functions
+show_gk_number and show_gk_digit into your file and then then call
+show_gk_number(number) (where number is an integer)
+"""
+
 digits={}
 
 digits['0'] ="""\
@@ -83,6 +89,9 @@ XX
 """
 
 def show_gk_number(number):
+    """ Number can be from 0 to 99, should be an
+        integer
+    """
     number=str(number)
     if len(number) == 2:
         show_gk_digit(number[0], 0)
@@ -91,6 +100,10 @@ def show_gk_number(number):
         show_gk_digit(number[0], 3)
 
 def show_gk_digit(digit, col):
+    """ Digit is a string with ' ' and 'X' and new lines,
+        like a pixmap. See digits dictionary contents to see
+        a few examples
+    """
     for y,row in enumerate(digits[str(digit)].split("\n")):
         for x,c in enumerate(row):
             if c == 'X':
