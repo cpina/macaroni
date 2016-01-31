@@ -1,8 +1,8 @@
 import microbit
 
-letters={}
+digits={}
 
-letters['0'] ="""\
+digits['0'] ="""\
 XX
 XX
 XX
@@ -10,7 +10,7 @@ XX
 XX\
 """
 
-letters['1'] = """\
+digits['1'] = """\
  X
 XX
  X
@@ -18,7 +18,7 @@ XX
  X\
 """
 
-letters['2'] = """\
+digits['2'] = """\
 XX
  X
 XX
@@ -26,7 +26,7 @@ X
 XX\
 """
 
-letters['3'] = """\
+digits['3'] = """\
 XX
  X
 X 
@@ -34,7 +34,7 @@ X
 XX\
 """
 
-letters['4'] = """\
+digits['4'] = """\
 X 
 X 
 XX
@@ -42,7 +42,7 @@ XX
  X\
 """
 
-letters['5'] = """\
+digits['5'] = """\
 XX
 X 
 XX
@@ -50,7 +50,7 @@ XX
 XX\
 """
 
-letters['6'] = """\
+digits['6'] = """\
 XX
 X 
 XX
@@ -58,7 +58,7 @@ XX
 XX\
 """
 
-letters['7'] = """\
+digits['7'] = """\
 XX
  X
  X
@@ -66,7 +66,7 @@ XX
  X\
 """
 
-letters['8'] = """\
+digits['8'] = """\
 XX
 XX
   
@@ -74,7 +74,7 @@ XX
 XX\
 """
 
-letters['9'] = """\
+digits['9'] = """\
 XX
 XX
 XX
@@ -85,13 +85,13 @@ XX
 def show_gk_number(number):
     number=str(number)
     if len(number) == 2:
-        show_gk_letter(number[0], 0)
-        show_gk_letter(number[1], 3)
+        show_gk_digit(number[0], 0)
+        show_gk_digit(number[1], 3)
     else:
-        show_gk_letter(number[0], 3)
+        show_gk_digit(number[0], 3)
 
-def show_gk_letter(letter, col):
-    for y,row in enumerate(letters[str(letter)].split("\n")):
+def show_gk_digit(digit, col):
+    for y,row in enumerate(digits[str(digit)].split("\n")):
         for x,c in enumerate(row):
             if c == 'X':
                 brightness = 9
@@ -101,9 +101,6 @@ def show_gk_letter(letter, col):
             microbit.display.set_pixel(x+col,y,brightness)
 
 for i in range(0, 35):
-    # show_letter(i,0)
-    # show_letter(i+1,3)
-
     show_gk_number(i)
 
     microbit.sleep(1000)
