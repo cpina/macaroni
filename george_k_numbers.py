@@ -2,7 +2,7 @@ import microbit
 
 """
 To show numbers using George K system: copy-paste the digits={} and functions
-show_gk_number and show_gk_digit into your file and then then call
+show_gk_number and show_gk_digit into your file and then call
 show_gk_number(number) (where number is an integer)
 """
 
@@ -100,9 +100,10 @@ def show_gk_number(number):
         show_gk_digit(number[0], 3)
 
 def show_gk_digit(digit, col):
-    """ Digit is a string with ' ' and 'X' and new lines,
-        like a pixmap. See digits dictionary contents to see
-        a few examples
+    """
+    Digit is a string. The digit should be represented by a string with 2
+    characters (' ' or 'X') and then a new line. 'X' will be illuminated. See
+    digits dictionary contents to see a few examples.
     """
     for y,row in enumerate(digits[str(digit)].split("\n")):
         for x,c in enumerate(row):
